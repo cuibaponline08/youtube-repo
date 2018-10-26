@@ -1,14 +1,14 @@
 
 
 @media only screen and (max-width: 900px) {
-    a.card {
+    li.card {
         flex-basis: calc(100%/2 - 12px);
         margin: 1em 6px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    a.card {
+    li.card {
         flex-basis: 100%;
         margin: 1em 0;
     }
