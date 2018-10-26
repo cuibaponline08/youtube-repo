@@ -1,20 +1,26 @@
-// After the API loads, call a function to enable the search box.
-function handleAPILoaded() {
-    const searchButton = document.getElementById('search-button');
-    searchButton.removeAttribute('disabled');
+function Main() {
+    var githubService = new GitHubService();
+    this.onInit = function () {
+        githubService.getFunchalSubscriptions(loadDataToContainer);
+    }
+
+    function loadDataToContainer() {
+        var data = JSON.parse(this.responseText);
+        var container = document.getElementById('container');
+        var template = '';
+        for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            template += '<a class="card" href="' + item.homepage + '" target="_blank">'
+            template += '<div class="image-container"><img src="https://assets-cdn.github.com/images/modules/open_graph/github-octocat.png" /></div>'
+            template += '<div class="name">' + item.name + '</div>';
+            template += '<div class="full-name">' + item.full_name + '</div>';
+            template += '</a>'
+        }
+        container.innerHTML = template;
+    }
 }
 
-// Search for a specified string.
-function search() {
-    const q = document.getElementById('query').value;
-    var request = gapi.client.youtube.search.list({
-        q: q,
-        part: 'snippet'
-    });
-
-    request.execute(function (response) {
-        var str = JSON.stringify(response.result);
-        const container = document.getElementById('search-container').value;
-        container.innerHTML = '<pre>' + str + '</pre>';
-    });
+var main = new Main();
+window.onload = function () {
+    main.onInit();
 }

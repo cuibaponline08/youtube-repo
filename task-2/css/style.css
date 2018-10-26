@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #D3DBDE;
+    margin: 0;
+    padding: 0;
+}
+
+body, body * {
+    box-sizing: border-box;
+}
+
+body > * {
+    flex-basis: 100%;
+}
+
+h1.app-name {
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    max-width: 1100px;
+    margin: 1em;
+    flex-wrap: wrap;
+}
+
+a.card {
+    text-decoration: none;
+    color: black;
+    flex-basis: calc(100%/3 - 12px);
+    margin: 1em 6px;
+    padding: 1em;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+a.card .name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+a.card .full-name {
+    font-style: italic;
+    font-weight: 0.9em;
+}
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.image-container > img { 
+    max-width: 100%;
+}
